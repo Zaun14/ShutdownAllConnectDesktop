@@ -78,13 +78,14 @@ public class Connect extends Thread {
     }
 
     private static void shutdown(@NotNull String msg) throws IOException {
-        if (msg.equals("shutdown")) System.out.println("shutdown");
-        else return;
-        if (System.getProperty("os.name").equals("Linux")) {
-            Runtime.getRuntime().exec("shutdown -P 0");
-        } else if (System.getProperty("os.name").startsWith("Windows")) {
-            Runtime.getRuntime().exec("shutdown /s /t 0");
-        }
+        if (msg.equals("shutdown")) {
+        
+            if (System.getProperty("os.name").equals("Linux")) {
+                Runtime.getRuntime().exec("shutdown -P 0");
+            } else if (System.getProperty("os.name").startsWith("Windows")) {
+                Runtime.getRuntime().exec("shutdown /s /t 0");
+            }
+        }else return;
     }
 
 
